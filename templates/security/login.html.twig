@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter!{% endblock %}
+
+{% block body %}
+<!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <!-- CSS Files -->
+        <link href="../home/assets/css/material-kit.css?v=2.0.6" rel="stylesheet" />
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link href="../home/assets/demo/demo.css" rel="stylesheet" />
+
+    <div class="section section-signup page-header" style="background-image: url('./home/assets/img/img/Avion-au-coucher-du-soleil.jpg');">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+            <div class="card card-login">
+            <form method="post" action="#">
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Se connecter</h4>
+                </div>
+                <p class="description text-center">Or Be Classical</p>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </div>
+                {% endif %}
+
+    {# <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1> #}
+
+                <div class="card-body">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">mail</i>
+                      </span>
+                    </div>
+                        <input type="email" value="{{ last_username }}" name="email" placeholder="Email..." id="inputEmail" class="form-control" required autofocus>
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                        <input type="password" name="password" placeholder="Mot de passe..." id="inputPassword" class="form-control" required>
+                  </div>
+                  <div class="input-group">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                  </div>
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+                <div class="footer text-center">
+                    <button class="btn btn-lg btn-primary" type="submit">
+                        Connexion
+                    </button>
+                </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock %}

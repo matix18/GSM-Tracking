@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CompagnieAeriennes{% endblock %}
+
+{% block body %}
+    <h1>CompagnieAeriennes</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compagnie_aerienne.id }}</td>
+            </tr>
+            <tr>
+                <th>Raison</th>
+                <td>{{ compagnie_aerienne.raison }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('compagnie_aeriennes_index') }}">back to list</a>
+
+    <a href="{{ path('compagnie_aeriennes_edit', {'id': compagnie_aerienne.id}) }}">edit</a>
+
+    {{ include('compagnie_aeriennes/_delete_form.html.twig') }}
+{% endblock %}

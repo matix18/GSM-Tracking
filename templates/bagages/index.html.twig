@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bagages index{% endblock %}
+
+{% block body %}
+    <h1>Bagages index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CodeBagage</th>
+                <th>NombreBagage</th>
+                <th>ListeBagages</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bagage in bagages %}
+            <tr>
+                <td>{{ bagage.id }}</td>
+                <td>{{ bagage.codeBagage }}</td>
+                <td>{{ bagage.nombreBagage }}</td>
+                <td>{{ bagage.listeBagages }}</td>
+                <td>
+                    <a href="{{ path('bagages_show', {'id': bagage.id}) }}">show</a>
+                    <a href="{{ path('bagages_edit', {'id': bagage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('bagages_new') }}">Create new</a>
+{% endblock %}

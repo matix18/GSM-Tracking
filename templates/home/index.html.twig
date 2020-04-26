@@ -1,0 +1,265 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!--     Fonts and icons     -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <!-- CSS Files -->
+        <link href="../home/assets/css/material-kit.css?v=2.0.6" rel="stylesheet" />
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link href="../home/assets/demo/demo.css" rel="stylesheet" />
+        
+<body class="landing-page sidebar-collapse">
+  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="{{ path('/') }}">
+          GSM-Tracking </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+              <i class="material-icons">apps</i> Agents
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              {% if app.user %}
+              <a href="{{ path('manager') }}" class="dropdown-item">
+                <i class="material-icons">layers</i> Manager
+              </a>
+              {% else %}
+              <a href="{{ path('app_login') }}" class="dropdown-item">
+                <i class="material-icons">layers</i> Se connecter
+              </a>
+              {% endif %}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('../home/assets/img/img/15138074-20608624.jpg')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="title">TROUVEZ VOS BAGAGES OU QUE VOUS SOYEZ.</h1>
+          <h4>Saisissez un code bagage et voyez s'il sont déjà arrivés à destination.</h4>
+          <form class="contact-form" action="{{ path('search') }}" method="get">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Entrez votre code bagage</label>
+                    <input type="text" name="code" class="form-control text-warning">
+                  </div>
+                </div>
+                <div class="col-md-6 text-center">
+                  <div class="form-group" style="padding-top:15px;">
+                    <button class="btn btn-warning" type="submit">
+                        Search code
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="section text-center">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="title">GSM-Tracking</h2>
+            <h5 class="description">
+              Cet site web est a la  vocation de permettre aux clients des agences de voyage 
+              de suivre la progression de leurs bagages ou colis, de savoir si un bagage a été 
+              oublié ou si tous les bagages sont déjà arrivés à destination. Et tout ceci en temps réel.
+              <br> Chaque client reçoit une notification de manière automatique lorsque un de ses bagages est égaré.
+              </h5>
+          </div>
+        </div>
+      <div class="section text-center">
+        <h2 class="title">Notre équipe de spécialiste en agence</h2>
+        <div class="team">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div class="col-md-6 ml-auto mr-auto">
+                    <img src="../home/assets/img/faces/avatar.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  </div>
+                  <h4 class="card-title">Hadid TOURE
+                    <br>
+                    <small class="card-description text-muted">Réceptioniste</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">Une acceuil chaleureuse vous est réservé, pour vos réservations de voyage</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#" class="btn btn-link"><i class="fa fa-phone"></i> (+221) 78-547-04-51</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div class="col-md-6 ml-auto mr-auto">
+                    <img src="../home/assets/img/faces/christian.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  </div>
+                  <h4 class="card-title">Christian NDIAYE
+                    <br>
+                    <small class="card-description text-muted">Bagiste</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">Vos bagages sont pris en charge des votre reservation et ce jusqu'à l'arrivée à destination.</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#" class="btn btn-link"><i class="fa fa-phone"></i> (+221) 78-547-04-51</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-player">
+                <div class="card card-plain">
+                  <div class="col-md-6 ml-auto mr-auto">
+                    <img src="../home/assets/img/faces/kendall.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  </div>
+                  <h4 class="card-title">Aminata Dakaté
+                    <br>
+                    <small class="card-description text-muted">Responsable Agence</small>
+                  </h4>
+                  <div class="card-body">
+                    <p class="card-description">Nous vous assistons à chacun de vos voyage et ce jusqu'à destination.</p>
+                  </div>
+                  <div class="card-footer justify-content-center">
+                    <a href="#" class="btn btn-link"><i class="fa fa-phone"></i> (+221) 78-547-04-51</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-contacts">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="text-center title">Déclaration de perte</h2>
+            <h4 class="text-center description">Pour toute réclamation ou déclaration de perte de bagage, veuillez remplir le formulaire ci-dessous.</h4>
+            <form class="contact-form">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Votre nom complèt</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Votre email</label>
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleMessage" class="bmd-label-floating">Dites-nous ce que vous avez perdu :</label>
+                <textarea type="text" class="form-control" rows="4" id="exampleMessage"></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-4 ml-auto mr-auto text-center">
+                  <button class="btn btn-primary btn-raised">
+                    Envoyer Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <footer class="footer footer-default">
+    <div class="container">
+      <nav class="float-left">
+        <ul>
+          <li>
+            {# <a href="https://www.creative-tim.com">
+              Creative Tim
+            </a> #}
+          </li>
+          <li>
+            {# <a href="https://creative-tim.com/presentation">
+              About Us
+            </a> #}
+          </li>
+          <li>
+            {# <a href="http://blog.creative-tim.com">
+              Blog
+            </a> #}
+          </li>
+          <li>
+            {# <a href="https://www.creative-tim.com/license">
+              Licenses
+            </a> #}
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, développé avec <i class="material-icons">favorite</i> par Aimé & Prince.
+      </div>
+    </div>
+  </footer>
+
+  <!--   Core JS Files   -->
+  <script src="../home/assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../home/assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../home/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="../home/assets/js/plugins/moment.min.js"></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="../home/assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../home/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../home/assets/js/material-kit.js?v=2.0.6" type="text/javascript"></script>
+  <script>
+      $(document).ready(function() {
+        //init DateTimePickers
+        materialKit.initFormExtendedDatetimepickers();
+
+        // Sliders Init
+        materialKit.initSliders();
+      });
+
+
+      function scrollToDownload() {
+        if ($('.section-download').length != 0) {
+          $("html, body").animate({
+            scrollTop: $('.section-download').offset().top
+          }, 1000);
+        }
+      }
+
+    </script>
+
+</body>
+
+</html>
+
+
+{% endblock %}

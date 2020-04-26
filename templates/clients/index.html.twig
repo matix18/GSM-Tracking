@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservations index{% endblock %}
+
+{% block body %}
+    <h1>Reservations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nomcli</th>
+                <th>Prenomcli</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>DateReservation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.nomcli }}</td>
+                <td>{{ client.prenomcli }}</td>
+                <td>{{ client.telcli }}</td>
+                <td>{{ client.emailcli }}</td>
+                {# <td>{{ client.dateReservation ? client.dateReservation|date('Y-m-d') : '' }}</td> #}
+                <td>
+                    <a href="{{ path('clients_show', {'id': client.id}) }}">voir+</a>
+                    <a href="{{ path('clients_edit', {'id': client.id}) }}">editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {# <a href="{{ path('reservations_new') }}">Create new</a> #}
+{% endblock %}

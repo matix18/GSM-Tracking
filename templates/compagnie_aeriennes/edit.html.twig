@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CompagnieAeriennes{% endblock %}
+
+{% block body %}
+    <h1>Edit CompagnieAeriennes</h1>
+
+    {{ include('compagnie_aeriennes/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('compagnie_aeriennes_index') }}">back to list</a>
+
+    {{ include('compagnie_aeriennes/_delete_form.html.twig') }}
+{% endblock %}
